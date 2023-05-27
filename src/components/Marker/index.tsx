@@ -5,12 +5,13 @@ interface IMarkerProps {
   map: any;
   position: any;
   children: ReactNode;
-  handleMouseEnter: (key: string) => void
-  handleMouseLeave: () => void
-  handleKey: string
 }
 
-export function Marker({ map, children, position, handleMouseEnter, handleMouseLeave, handleKey }: IMarkerProps) {
+export function Marker({
+  map,
+  children,
+  position,
+}: IMarkerProps) {
   const markerRef = useRef<google.maps.marker.AdvancedMarkerElement>();
   const rootRef = useRef<Root>();
 
@@ -27,14 +28,14 @@ export function Marker({ map, children, position, handleMouseEnter, handleMouseL
   }, []);
 
   useEffect(() => {
-
-    rootRef.current?.render(children)
-    if(markerRef.current) {
-      markerRef.current.position = position
-      markerRef.current.map = map
+    rootRef.current?.render(children);
+    if (markerRef.current) {
+      markerRef.current.position = position;
+      markerRef.current.map = map;
+      const listener = markerRef.current.addListener('click', ()=>{})
+      return () => listener.remove()
     }
-
   }, [map, position, children]);
 
-  return <div onMouseEnter={() => handleMouseEnter(handleKey)} onMouseLeave={() => {handleMouseLeave()}}>{children}</div>;
+  return null;
 }

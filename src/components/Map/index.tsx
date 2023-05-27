@@ -10,8 +10,7 @@ export function Map() {
     mapId: process.env.NEXT_PUBLIC_GOOGLE_MAP_ID,
     center: {lat: 43.66293, lng: -79.39314},
     zoom: 10,
-    clickableIcons: true,
-    disableDefaultUI: false
+    disableDefaultUI: true
   }
 
   useEffect(() => {

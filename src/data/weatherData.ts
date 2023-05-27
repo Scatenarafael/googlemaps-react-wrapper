@@ -1,4 +1,4 @@
-type Data = {
+export type Data = {
   name: string,
   position: {lat: number, lng: number},
   climate: string,
@@ -7,7 +7,7 @@ type Data = {
 }
 
 
-interface WeaderDataProps {
+export interface WeaderDataProps {
   A: Data,
   B: Data,
   C: Data,

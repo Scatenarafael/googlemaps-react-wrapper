@@ -12,13 +12,16 @@
 .marker {
   background-color: black;
   color: #fff;
+  display: flex;
   font-size: 8px;
   padding: 0.5rem;
-  transition: all 0.3s ease-out;
+  transition: all 0.4s ease;
   position: relative;
   width: 100px;
   border-radius: 5px;
-  z-index: 50;
+}
+.marker .climate-temp {
+  width: 50%;
 }
 
 .marker:after {
@@ -48,7 +51,14 @@
 
 .highlight {
   width: 200px;
+  height: 80px;
   color: white;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.highlight p {
+  margin-bottom: 5px;
 }
 
 .highlight.raining {
@@ -61,4 +71,61 @@
 
 .highlight.marker.sunny {
   background-color: goldenrod;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+
+}
+.five-day {
+  opacity: 1;
+  animation: fadeIn 1s;
+}
+
+.editing {
+  position: absolute;
+  padding: 1rem;
+  top: 1rem;
+  right: 1rem;
+  width: 20%;
+  min-width: 200px;
+  background-color: gray;
+  border-radius: 8px;
+}
+
+.editing label {
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.editing input, select {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.editing button {
+  padding: 0.5rem;
+  border-radius: 8px;
 }
